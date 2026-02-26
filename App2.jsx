@@ -83,6 +83,7 @@ export default function App() {
           <button className="btn" onClick={() => setView('home')} aria-label="Go to shop">Shop</button>
           <button className="btn" onClick={() => setView('cart')} aria-label={`Cart with ${cart.length} items`}>Cart <span className="cart-badge" aria-hidden="true">{cart.length}</span></button>
           <button className="btn" onClick={() => setView('orders')} aria-label="View my orders">My Orders</button>
+          <button className="btn" onClick={() => setView('contact')} aria-label="Visit our location">Contact</button>
           <button className="btn" onClick={() => setView('admin-login')} aria-label="Admin login">Admin</button>
         </nav>
       </header>
@@ -165,6 +166,34 @@ export default function App() {
           <section className="container admin-panel">
             <h2>Admin</h2>
             <AdminPanel products={products} onAdd={addProduct} onRemove={removeProduct} orders={orders} onVerify={adminVerify} onUpdate={adminUpdateStatus} testimonials={testimonials} onDelTest={(id)=>{ /* simple removal */ }} />
+          </section>
+        )}
+
+        {view==='contact' && (
+          <section className="container contact-section" aria-label="Contact and location">
+            <h2>Visit Us</h2>
+            <div className="contact-grid">
+              <div className="contact-info" aria-label="Contact information">
+                <h3>Get in Touch</h3>
+                <p><strong>SANBAE Store</strong></p>
+                <p>📍 South Delhi, India</p>
+                <p>📞 +91 98765 43210</p>
+                <p>✉️ hello@sanbae.com</p>
+                <p className="hours"><strong>Hours:</strong> Mon-Sat 10am-9pm IST</p>
+                <p className="desc">Visit our flagship store to explore our latest streetwear collection. Experience premium quality and style in person.</p>
+              </div>
+              <div className="contact-map" aria-label="Store location map">
+                <iframe 
+                  title="SANBAE Store Location"
+                  width="100%" 
+                  height="400" 
+                  style={{border:0, borderRadius:'8px'}} 
+                  loading="lazy" 
+                  allowFullScreen="" 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.7845696826633!2d77.20699!3d28.523087!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce2caa1234567%3A0x9876543210abcdef!2sDelhi!5e0!3m2!1sen!2sin!4v1708000000000">
+                </iframe>
+              </div>
+            </div>
           </section>
         )}
       </main>
